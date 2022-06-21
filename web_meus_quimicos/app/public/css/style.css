@@ -1,0 +1,107 @@
+body{
+	background-size:auto;
+	background-repeat: repeat-y;
+	background-image: url(https://agrorevenda.com.br/wp-content/uploads/2022/02/SINDIVEG-Valor-do-mercado-de-defensivos-agricolas-aplicados-recua-10-por-cento-em-2020-1.jpg);
+}
+
+.img-center {
+	margin:0 auto;
+}
+
+.btn-primary{
+	background-color: #3897f0;
+	border-color: #3897f0;
+}
+
+input[type ='text']:invalid {
+	border: 2px solid red;
+  }
+input:focus{
+	background:#EFEFEF
+} 
+select:invalid {
+	border: 2px solid red;
+}
+
+.btn-login{
+	width: 100%;
+	font-weight: bold;
+}
+
+.painel-login{
+	padding-top: 60px;
+}
+
+.home{
+	padding-top: 30px;
+}
+
+.navbar-default{
+	background: #fff;
+}
+
+.logo2{
+	padding-left:50px;
+	padding-right:450px;
+}
+
+
+
+
+
+.quimico{
+	border:solid 1px #EFEFEF;
+	display:inline-block;
+	font-weight: bold;
+	padding: 15px;
+	margin-bottom:50px;
+	margin-right: 15px;
+	margin-left: 15px;
+	text-align: center;
+	background-color:rgba(240, 248, 255, 0.9);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	
+}
+.detalhes_qui{
+	border:solid 1px #EFEFEF;
+	display: block;
+	font-weight: bold;
+	justify-content: space-around;
+	text-align: left;
+	margin: auto;
+	padding: 5px;
+	background-color:rgba(255, 255, 255, 1);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin-bottom:10px;
+}
+
+
+.form-group-b{
+	font-weight: bold;
+	text-align: left;
+	margin: auto;
+	padding: 20px;
+    max-width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	color: rgb(69, 8, 155);
+	background-color: aliceblue;
+
+}
+
+.quimico_img{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin-right: 5px;
+	margin-bottom:15px;
+	
+}
+h2{
+	font-weight: bold;
+	padding: 20px;
+	margin: auto;
+	background-color:rgba(74, 192, 0, 0.20);
+	
+}
+
+
+
+

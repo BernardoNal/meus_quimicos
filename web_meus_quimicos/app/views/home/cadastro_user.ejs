@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Meus Químicos</title>
+		
+		<!-- JQuery -->
+		<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<script>
+			$(document).ready(function(){
+
+				$('#btn_voltar').click(function(){
+				window.location.href = '/';
+				});	
+			});
+		</script>
+
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="container-fluid">
+						<button type="button" class="btn btn-info" id ="btn_voltar">Voltar</button>	
+						<img alt="Meus Químicos" src="images/logo_my_quimicos.png" class="logo2">						
+						
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+
+			<% if(validacao.length > 0) { %>
+				<div class="alert alert-danger">
+					<strong>Atenção!</strong>
+					<ul>
+						<% for( var i = 0;i< validacao.length ;i++) { %>
+							<li><%=validacao[i].msg%></li>
+						<% } %>
+					</ul>
+				</div>
+			<% } %>
+			<% if(dadosForm.msg == 3) { %>
+				<div class="alert alert-danger">
+					<strong>Atenção!</strong>
+					<ul>
+							<li>Esse <%=dadosForm.msgCadastro%> já existe! </li>
+					</ul>
+				</div>
+			<% } %>
+					
+		</div>	
+		<div class="container">
+			<div class="col-md-12">
+			
+				<form class="form-cadastro" action="/cadastrar" method="post">	
+				<div class="row">
+					<div class="form-group-b">
+					
+						<label for="nome" class="col-sm-2 col-form-label">Nome</label>
+						<input type="nome" value="<%=dadosForm.nome%>" class="form-control" id="nome" name="nome"placeholder="Nome"  required>
+						
+					</div>
+					
+					
+						<div class="form-group-b">
+							<label for="usuario" class="col-sm-2 col-form-label">Usuário</label>
+							<input type="usuario" value="<%=dadosForm.usuario%>" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required>
+						</div>
+					
+					<div class="form-group-b">
+					
+						<label for="email" class="col-sm-2 col-form-label">Email</label>
+						<input type="email" value="<%=dadosForm.email%>" class="form-control" id="email" name="email"placeholder="Email" required>
+						
+					</div>
+					<div class="form-group-b">
+						<label for="senha" class="col-sm-2 col-form-label">Senha</label>
+						<input type="password"  class="form-control" id="senha" name="senha" placeholder="Password"  required>
+					</div>
+				
+				</div>
+			
+				<div class="form-group-b">
+					<button type="submit" class="btn btn-success"  id="btn-publicar">Confirmar cadastro</button>
+				</div>
+			</form>
+				
+
+
+		</div>
+		</div>
+
+
+	</body>
+</html>

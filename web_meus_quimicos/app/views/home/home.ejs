@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Meus Químicos</title>
+		
+		<!-- JQuery -->
+		<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<script>
+			$(document).ready(function(){
+
+				function carrega_quimicos(){
+
+					var xhr =new XMLHttpRequest();
+					xhr.open('GET','http://localhost:8080/api');
+
+					xhr.onload = function(){
+						if(xhr.status === 200){
+							var data = $.parseJSON(xhr.responseText);
+							
+							for(i = 0; i < data.length; i++ ){
+								$('#container_timeline').append(
+									"<div class = 'quimico'>"+
+										"<img class = 'quimico_img' src = 'http://localhost:8080/imagem/"+ data[i].url_img+"' width='250' height='250'/>"+	
+										
+									"<h2>" + data[i].name_produto + "</h2>" + 
+									
+										"<div class = 'detalhes_qui'>"+
+											"<li>Composto: "+data[i].composto_produto +" </li>"+
+											"<li>tipo:"+ data[i].tipo_quimico  +"</li>"+
+											"<li>Área(s) de atuação: "+data[i].area+"</li>"+
+											"<li>Inflamável: "+data[i].inflamavel+"</li>"+
+										'</div>'+
+									//	"<button type = 'button' value = '"+data[i]._id+"' class = ' btn  btn-info btn-excluir-quimico '>Editar</button>"+
+										"<button type = 'button' value = '"+data[i]._id+"' class = ' btn  btn-danger btn-excluir-quimico '>Excluir</button>"+
+									'</div>'
+										
+								);
+								
+								
+							}
+
+							$('.btn-excluir-quimico').click(function(){
+								var id =this.value;
+								console.log(id)
+								var xhr =new XMLHttpRequest();
+
+
+								xhr.open('DELETE','http://localhost:8080/api/'+id);
+								
+
+								xhr.onload = function(){
+									if(xhr.status === 200){
+										window.location.href = '/home';
+									}
+								}
+
+								xhr.send();
+				});
+						}
+					}
+
+					xhr.send();
+
+				};
+
+				carrega_quimicos();
+
+				
+
+			
+
+			
+				$('#btn_cadastro').click(function(){
+				window.location.href = '/cadastro';
+				});
+				
+				$('#btn_sair').click(function(){
+					window.location.href = '/sair';
+				});
+			});
+		</script>
+
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="container-fluid">
+						<button type="button" class="btn btn-info" id="btn_cadastro">Cadastro</button>
+						<img alt="Meus Químicos" src="images/logo_my_quimicos.png" class="logo2">
+						<button type="button" class=" btn btn-danger" id="btn_sair">Sair</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			
+			<div class="col-md-12" id="container_timeline"></div>
+			
+		</div>
+
+
+		
+	</body>
+</html>
